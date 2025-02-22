@@ -25,7 +25,7 @@ PHZBot is a Discord bot written in JavaScript that offers administration functio
 
 1. Clone this repository:
    ```sh
-   git clone https://github.com/ArtHirche/discord-bot
+   git clone https://github.com/ArtHirche/PHZBot
    ```
 2. Navigate to the project folder:
    ```sh
