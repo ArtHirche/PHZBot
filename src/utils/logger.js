@@ -6,12 +6,16 @@ module.exports = {
     const logChannel = client.channels.cache.get(config.logsChannelId);
 
     if (!logChannel) {
-      console.error("Canal de logs não encontrado! Verifique se o ID está correto no config.json.");
+      console.error(
+        "Canal de logs não encontrado! Verifique se o ID está correto no config.json."
+      );
       return;
     }
 
     if (!details || typeof details !== "string" || details.trim() === "") {
-      console.error("Detalhes inválidos para o log. Evitando envio de mensagem vazia.");
+      console.error(
+        "Detalhes inválidos para o log. Evitando envio de mensagem vazia."
+      );
       return;
     }
 
@@ -26,5 +30,5 @@ module.exports = {
     } catch (err) {
       console.error("Erro ao enviar log para o canal:", err);
     }
-  }
+  },
 };

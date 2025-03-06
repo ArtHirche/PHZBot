@@ -3,7 +3,8 @@ const { sendLog } = require("../../utils/logger");
 
 module.exports = {
   name: "unmute",
-  description: "Unmutes a user",
+  description:
+    "Desmuta um usuário do servidor. Utilize: `phz.unmute @usuário [motivo]`",
   execute: async (client, message, args) => {
     if (
       !message.member.permissions.has(PermissionsBitField.Flags.MuteMembers)

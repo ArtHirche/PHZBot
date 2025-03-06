@@ -3,7 +3,7 @@ const { sendLog } = require("../../utils/logger");
 
 module.exports = {
   name: "mute",
-  description: "Mutes a user",
+  description: "Mute um usuário. Utilize: `phz.mute @usuário <tempo> [motivo]`",
   execute: async (client, message, args) => {
     if (
       !message.member.permissions.has(PermissionsBitField.Flags.MuteMembers)

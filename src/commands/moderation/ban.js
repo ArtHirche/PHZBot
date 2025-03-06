@@ -3,7 +3,8 @@ const { sendLog } = require("../../utils/logger");
 
 module.exports = {
   name: "ban",
-  description: "Bans a user",
+  description:
+    "Bane um usuário do servidor. Utilize: `phz.ban @usuário [motivo]`",
   execute: async (client, message, args) => {
     if (!message.member.permissions.has(PermissionsBitField.Flags.BanMembers)) {
       return message.reply("Você não tem permissão para banir usuários!");

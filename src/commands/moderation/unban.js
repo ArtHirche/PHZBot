@@ -3,7 +3,8 @@ const { sendLog } = require("../../utils/logger");
 
 module.exports = {
   name: "unban",
-  description: "Unbans a user for ID",
+  description:
+    "Desbane um usuário do servidor. Utilize: `phz.unban <id> [motivo]`",
   execute: async (client, message, args) => {
     if (!message.member.permissions.has(PermissionsBitField.Flags.BanMembers)) {
       return message.reply("Você não tem permissão para desbanir usuários!");

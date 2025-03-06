@@ -3,7 +3,8 @@ const { sendLog } = require("../../utils/logger");
 
 module.exports = {
   name: "role",
-  description: "Adiciona ou remove um ou mais cargos de um usuário.",
+  description:
+    "Adiciona ou remove um ou mais cargos de um usuário. Utilize: `phz.role add|remove @usuário @cargo1 @cargo2 ...`",
   execute: async (client, message, args) => {
     if (
       !message.member.permissions.has(PermissionsBitField.Flags.ManageRoles)

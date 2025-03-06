@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { Client, GatewayIntentBits } = require("discord.js");
+const { Client, GatewayIntentBits, Collection } = require("discord.js");
 const fs = require("fs");
 const path = require("path");
 
@@ -12,19 +12,27 @@ const client = new Client({
   ],
 });
 
-client.commands = new Map();
-const commandsPath = path.join(__dirname, "commands/moderation");
-const commandFiles = fs
-  .readdirSync(commandsPath)
-  .filter((file) => file.endsWith(".js"));
+client.commands = new Collection();
 
-for (const file of commandFiles) {
-  const command = require(`./commands/moderation/${file}`);
-  client.commands.set(command.name, command);
-}
+const loadCommands = (dir) => {
+  const files = fs.readdirSync(dir);
+  for (const file of files) {
+    const fullPath = path.join(dir, file);
+    const stat = fs.statSync(fullPath);
+
+    if (stat.isDirectory()) {
+      loadCommands(fullPath);
+    } else if (file.endsWith(".js")) {
+      const command = require(fullPath);
+      client.commands.set(command.name, command);
+    }
+  }
+};
+
+loadCommands(path.join(__dirname, "commands"));
 
 client.once("ready", () => {
-  console.log(`Bot online como ${client.user.tag}`);
+  console.log(`🚀 Bot online como ${client.user.tag}`);
 });
 
 client.on("messageCreate", async (message) => {
@@ -39,7 +47,12 @@ client.on("messageCreate", async (message) => {
 
   const command = client.commands.get(commandName);
   if (command) {
-    command.execute(client, message, args);
+    try {
+      await command.execute(client, message, args);
+    } catch (error) {
+      console.error(`Erro ao executar o comando '${commandName}':`, error);
+      message.reply("Ocorreu um erro ao executar esse comando.");
+    }
   }
 });
 
