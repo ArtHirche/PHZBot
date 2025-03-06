@@ -1,57 +1,69 @@
-# PHZBot - Discord Bot
+# 🤖 PHZBot - Discord Bot  
 
 ## 📌 About the Project
 
-PHZBot is a Discord bot written in JavaScript that offers administration functionalities, such as automatic welcome messages, role management, banning and muting users, and adding emojis to the server.
+PHZBot is a **Discord moderation bot** built with **JavaScript** and **Discord.js**.  
+It provides powerful **administration tools** such as **role management, banning, muting, emoji management, and automated welcome messages**.  
 
-## 🚀 Features
+## 🚀 Features  
 
-- Welcome message for new members.
-- Commands with the prefix `phz.`
-- Add and remove roles from users.
-- Add custom emojis to the server.
-- Ban users.
-- Mute users.
+✅ **Welcome message** for new members.  
+✅ **Commands with prefix** `phz.`  
+✅ **Role management** (add/remove roles).  
+✅ **Custom emoji management** (add/remove emojis).  
+✅ **Moderation** (ban, unban, mute, unmute).  
+✅ **Help command** (`phz.help`) to list all available commands.  
+✅ **Ping command** (`phz.ping`) to check bot latency.  
 
-## 📦 Project Setup
+## 📦 Setup and Installation  
 
-### 1️⃣ Requirements
+### 1️⃣ Requirements  
 
-- Node.js installed (v16 or higher)
-- Bot token from Discord Developer Portal
-- Appropriate permissions for the bot in the server
+- **Node.js** v16 or higher  
+- **A bot token** from [Discord Developer Portal](https://discord.com/developers/applications)  
+- **Manage Roles and Manage Messages permissions** for the bot  
 
-### 2️⃣ Installation
+### 2️⃣ Installation  
 
-1. Clone this repository:
+1️⃣ Clone this repository:  
    ```sh
    git clone https://github.com/ArtHirche/PHZBot
    ```
-2. Navigate to the project folder:
+2️⃣ Navigate to the project folder:  
    ```sh
-   cd discord-bot
+   cd PHZBot
    ```
-3. Install dependencies:
+3️⃣ Install dependencies:  
    ```sh
    npm install
    ```
-4. Configure the `.env` file with your bot token:
+4️⃣ Configure the **`.env`** file:  
    ```plaintext
    TOKEN=your_token_here
+   PREFIX=phz.
    ```
-5. Run the bot:
+5️⃣ Start the bot:  
    ```sh
    node src/index.js
    ```
 
-## 🎯 Next Steps
+## 🔧 Available Commands  
 
-- Create commands for each functionality.
-- Implement a permission system.
-- Improve execution logs.
-- Add a dynamic configuration system.
+| Command | Description |
+|---------|------------|
+| `phz.help` | 📜 Lists all available commands. |
+| `phz.ping` | 🏓 Checks bot latency. |
+| `phz.role add @user @role` | ➕ Adds a role to a user. |
+| `phz.role remove @user @role` | ➖ Removes a role from a user. |
+| `phz.addemoji <name> <url>` | 😀 Adds a custom emoji to the server. |
+| `phz.removeemoji <emoji>` | ❌ Removes an emoji from the server. |
+| `phz.ban @user <reason>` | 🔨 Bans a user from the server. |
+| `phz.unban <user_id>` | ✅ Unbans a previously banned user. |
+| `phz.mute @user <time>` | 🔇 Mutes a user for a certain duration. |
+| `phz.unmute @user` | 🔊 Unmutes a muted user. |
+
+💡 **More commands coming soon!**  
 
 ---
 
-Created by **Arthur Hirche** 🚀
-
+Created by **Arthur Hirche** and **Larissa Lopes** 🚀  
